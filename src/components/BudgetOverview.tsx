@@ -1,13 +1,15 @@
 import React from "react";
 import "./BudgetOverview.css";
 import Budget from "../interfaces";
+import BudgetItem from "./BudgetItem";
 
 interface BudgetProps {
   budgets: Budget[];
 }
 
-export const BudgetOverview = () => {
-
+export const BudgetOverview: React.FC<BudgetProps> = ({
+  budgets,
+}: BudgetProps) => {
   return (
     <div className="Budget-Overview">
       <table>
@@ -26,6 +28,15 @@ export const BudgetOverview = () => {
               <h4>REMAINING</h4>
             </td>
           </tr>
+          {budgets.map((item) => {
+            return (
+              <BudgetItem
+                budgeted={item.budgeted}
+                spent={item.spent}
+                category={item.category}
+              />
+            );
+          })}
         </tbody>
       </table>
     </div>
