@@ -1,8 +1,12 @@
-import React from 'react';
+import React from "react";
+import BudgetOverview from "./components/BudgetOverview";
+import "./App.css";
 
 function App() {
   return (
-    <div>
+    <div className="App">
+      <header className="App-header"></header>
+      <BudgetOverview />
     </div>
   );
 }
